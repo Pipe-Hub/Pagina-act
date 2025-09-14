@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Cargar Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🗲 ENERGYVIBES 🗲 | Ofertas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/Pereira.png" type="image/png">
+</head>
+<body>
+  <header>
+    <h1>🗲 ENERGYVIBES 🗲</h1>
+  </header>
+
+  <!-- ✅ Menú igual al de productos.html -->
+  <nav>
+    <a href="index.html">Inicio 🏠</a>
+    <div class="dropdown">
+      <a href="productos.html" class="active" id="productosBtn">Productos 📦 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content" id="productosMenu">
+        <a href="productos.html?tipo=creatina">Creatina</a>
+        <a href="productos.html?tipo=preentreno">Pre Entreno</a>
+        <a href="productos.html?tipo=proteina">Proteína</a>
+      </div>
+    </div>
+    <a href="#" class="active">Ofertas 💸</a>
+    <a href="contacto.html">Contacto 📲</a>
+    <a href="carrito.html">Carrito 🛒</a>
+  </nav>
+
+  <!-- Galería dinámica para los productos -->
+  <div id="galeria-productos" class="galeria-productos"></div>
+
+  <main>
+    <!-- 🔥 Ofertas especiales -->
+    <section class="ofertas">
+      <div class="oferta">
+        <img src="img/C4.png" alt="Pre-workout C4">
+        <h2>Pre-workout C4</h2>
+        <p class="precio-anterior">$150.000</p>
+        <p class="precio-oferta">$120.000</p>
+        <p class="descuento">¡20% OFF!</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/Creatina_Nutrex.png" alt="Creatina Nutrex">
+        <h2>Creatina Nutrex</h2>
+        <p class="precio-anterior">$120.000</p>
+        <p class="precio-oferta">$95.000</p>
+        <p class="descuento">¡Ahorra $25.000!</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/Proteina_Yava_Labs.png" alt="Proteina Yava Labs">
+        <h2>Proteina Yava Labs</h2>
+        <p class="precio-anterior">$300.000</p>
+        <p class="precio-oferta">$250.000</p>
+        <p class="descuento">¡Precio especial por tiempo limitado!</p>
+        <button>Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="redes">
+      <a href="https://facebook.com/samuel_zuleta_" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com/samuel_zuleta_" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com/samuel_zuleta_" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ✅ Script para que muestre los productos dinámicos -->
+  <script src="productos.js"></script>
+
+  <!-- ✅ Script para que los botones funcionen -->
+  <script>
+    function activarBotonesCarrito() {
+      document.querySelectorAll(".oferta button").forEach((boton) => {
+        boton.addEventListener("click", () => {
+          const producto = boton.parentElement;
+          const nombre = producto.querySelector("h2").innerText;
+          // Si existe precio-oferta, lo tomamos, si no, tomamos precio-anterior
+          const precio = producto.querySelector(".precio-oferta") 
+                          ? producto.querySelector(".precio-oferta").innerText 
+                          : producto.querySelector(".precio-anterior").innerText;
+          const imagen = producto.querySelector("img").src;
+
+          let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+          carrito.push({ nombre, precio, imagen });
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+
+          alert(`${nombre} se agregó al carrito 🛒`);
+        });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      activarBotonesCarrito();
+    });
+  </script>
+  <script src="productos.js"></script>
+</body>
+</html>

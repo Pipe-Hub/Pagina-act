@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'UrbanShadowSansSerif';
+  src: url('fonts/Coolvetica\ Rg.otf') format('opentype');
+}
+
+/* 🔹 Estilo general para todo el cuerpo */
+body {
+  font-family: 'Coolvetica Rg', 'UrbanShadowSansSerif', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #102f25;
+  color: white;
+  font-size: 50px;
+}
+
+/* 🔹 Header y Footer */
+header, footer {
+  background-color: #102f25;
+  padding: 15px;
+}
+
+header h1 {
+  font-size: 80px;
+}
+
+/* 🔹 Barra de navegación */
+nav {
+  display: flex;
+  background-color: #102f25;
+  justify-content: center;
+  gap: 60px;
+  padding: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 50px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  transition: width 0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* 🔹 Galería de productos */
+#galeria-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 60px;
+}
+
+/* 🔹 Estilos de ofertas (cards) */
+.ofertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 60px 60px;
+}
+
+.oferta {
+  background: transparent;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.oferta img {
+  width: 60%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.oferta:hover img {
+  transform: scale(1.08);
+}
+
+.oferta h2 {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-size: 60px;
+}
+
+.precio-anterior {
+  color: #b3b3b3;
+  text-decoration: line-through;
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
+.precio-oferta {
+  color: #00ccff;
+  font-weight: bold;
+  font-size: 65px;
+  margin-bottom: 10px;
+}
+
+.descuento {
+  color: #3bff45;
+  font-weight: bold;
+  font-size: 55px;
+  margin-bottom: 30px;
+}
+
+.oferta button {
+  background-color: #00ccff;
+  color: #102f25;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 60px;
+  transition: background 0.3s;
+}
+
+.oferta button:hover {
+  background-color: #0099cc;
+}
+
+/* 🔹 Footer redes sociales */
+footer .redes a {
+  color: white;
+  font-size: 70px;
+  margin: 0px 45px;
+  text-decoration: none;
+}
+
+footer .redes a:hover {
+  color: #1da1f2;
+}
+
+/* 🔹 Dropdown (menu desplegable) */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 10;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  background: #222;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffb700;
+  color: #222;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* 🔹 Formulario - Inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 600px;
+}
+
+form input, form textarea {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 28px;
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+  outline: none;
+}
+
+form input::placeholder, 
+form textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+form button {
+  background-color: #00ccff;
+  color: #102f25;
+  border: none;
+  padding: 15px 30px;
+  font-size: 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #0099cc;
+}

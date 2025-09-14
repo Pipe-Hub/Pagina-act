@@ -1,0 +1,107 @@
+<!DOCTYPE html> <!-- Indica que el documento es HTML5 -->
+<html lang="es"> <!-- Idioma del documento: Español -->
+
+<head>
+  <meta charset="UTF-8"> <!-- Soporte para acentos y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive -->
+  <title> 🗲 ENERGYVIBES 🗲 | Inicio </title> <!-- Título que aparece en la pestaña del navegador -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/Pereira.png" type="image/png">
+
+  <!-- Font Awesome para iconos -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Vincular CSS local -->
+  <link rel="stylesheet" href="style.css"> <!-- Conecta la hoja de estilos style.css -->
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>🗲 ENERGYVIBES 🗲</h1>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav>
+    <a href="#" class="active">Inicio 🏠</a>
+    <div class="dropdown">
+      <a href="productos.html" class="active" id="productosBtn">Productos 📦 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content" id="productosMenu">
+        <a href="productos.html?tipo=creatina">Creatina</a>
+        <a href="productos.html?tipo=preentreno">Pre Entreno</a>
+        <a href="productos.html?tipo=proteina">Proteína</a>
+      </div>
+    </div>
+    <a href="ofertas.html">Ofertas 💸</a>
+    <a href="contacto.html">Contacto 📲</a>
+    <a href="carrito.html">Carrito 🛒</a>
+  </nav>
+
+  <!-- Div para mostrar productos filtrados dinámicamente -->
+  <div id="galeria-productos" class="galeria-productos"></div>
+
+  <main>
+    <!-- Sección de Ofertas -->
+    <section class="ofertas" id="ofertas-section">
+      <!-- Cada producto en su card -->
+      <div class="oferta">
+        <img src="img/C4.png" alt="Pre-Entreno C4">
+        <h2>Pre-Entreno C4</h2>
+        <p class="precio">$120.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/Creatina_Nutrex.png" alt="Creatina Nutrex">
+        <h2>Creatina Nutrex</h2>
+        <p class="precio">$95.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/Proteina_Yava_Labs.png" alt="Proteina Yava Labs">
+        <h2>Proteina Yava Labs</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/MASS_TECH_XTREME_6_LB.png" alt="Proteina Mass Tech">
+        <h2>Proteina Mass Tech</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/intenze.png" alt="Intenze">
+        <h2>Intenze</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="oferta">
+        <img src="img/Micronized_Creatine.png" alt="Creatina Micronizada">
+        <h2>Creatina Micronizada</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="redes">
+      <a href="https://facebook.com/samuel_zuleta_" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/samuel_zuleta_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/felipe_mr2122" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <!-- Script con lógica de productos -->
+  <script src="productos.js"></script>
+</body>
+</html>

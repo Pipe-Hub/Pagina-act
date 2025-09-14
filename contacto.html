@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/Pereira.png" type="image/png">
+  <title>🗲 ENERGYVIBES 🗲 | Contacto</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tu hoja de estilos -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contacto.css">
+</head>
+
+<body>
+  <header>
+    <h1>🗲 ENERGYVIBES 🗲</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio 🏠</a>
+    <div class="dropdown">
+      <a href="productos.html" class="active" id="productosBtn">Productos 📦 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content" id="productosMenu">
+        <a href="productos.html?tipo=creatina">Creatina</a>
+        <a href="productos.html?tipo=preentreno">Pre Entreno</a>
+        <a href="productos.html?tipo=proteina">Proteína</a>
+      </div>
+    </div>
+    <a href="ofertas.html">Ofertas 💸</a>
+    <a href="contacto.html" class="active">Contacto 📲</a>
+    <a href="carrito.html">Carrito 🛒</a>
+  </nav>
+
+  <main>
+    <section class="contenedor">
+      <!-- Formulario -->
+      <div class="contacto-card">
+        <h2>📩 Contáctanos</h2>
+        <p>¿Tienes dudas, sugerencias o comentarios? Escríbenos y te responderemos lo antes posible.</p>
+        <form action="mailto:tucorreo@ejemplo.com" method="post" enctype="text/plain">
+          <div class="campo">
+            <label for="nombre"><i class="fa-solid fa-user"></i> Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+          </div>
+
+          <div class="campo">
+            <label for="email"><i class="fa-solid fa-envelope"></i> Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje"><i class="fa-solid fa-comment-dots"></i> Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="4" required></textarea>
+          </div>
+
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        </form>
+      </div>
+
+      <!-- Mapa -->
+      <div class="mapa-card">
+        <h2>📍 Nuestra Ubicación</h2>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.80851024386!2d-75.69729128865788!3d4.802908995152385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3887d4fdb2e86d%3A0xf94f51c79cd5dcf5!2sGimnasio%20Smart%20Fit%20-%20La%2014%20de%20Pereira!5e0!3m2!1ses-419!2sco!4v1757731655202!5m2!1ses-419!2sco" 
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="redes">
+      <a href="https://facebook.com/samuel_zuleta_" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/samuel_zuleta_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/samuel_zuleta_" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>

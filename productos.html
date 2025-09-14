@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🗲 ENERGYVIBES 🗲 | Productos</title>
+    <link rel="icon" href="img/Pereira.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🗲 ENERGYVIBES 🗲</h1>
+  </header>
+
+  <nav>
+  <a href="index.html">Inicio 🏠</a>
+  <div class="dropdown">
+      <a href="productos.html" class="active" id="productosBtn">Productos 📦 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content" id="productosMenu">
+        <a href="productos.html?tipo=creatina">Creatina</a>
+        <a href="productos.html?tipo=preentreno">Pre Entreno</a>
+        <a href="productos.html?tipo=proteina">Proteína</a>
+      </div>
+    </div>
+  <a href="ofertas.html">Ofertas 💸</a>
+  <a href="contacto.html">Contacto 📲</a>
+  <a href="carrito.html">Carrito 🛒</a>
+</nav>
+
+<div id="galeria-productos" class="galeria-productos">
+  <!-- Aquí se mostrarán las imágenes de los productos -->
+</div>
+<div id="productos-container"></div>
+
+<style>
+/* Menú desplegable */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #222; /* Paleta oscura */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background: #222;
+  transition: background 0.2s;
+}
+.dropdown-content a:hover {
+  background-color: #ffb700; /* Color de acento */
+  color: #222;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.galeria-productos {
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Card de producto igual que en index */
+.oferta {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0003;
+  border: 2px solid #ffb700;
+  width: 220px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.oferta:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px #0004;
+}
+.oferta img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.oferta h2 {
+  font-size: 1.1rem;
+  margin: 8px 0 4px 0;
+}
+.oferta .precio {
+  color: #ffb700;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.oferta button {
+  background: #ffb700;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.oferta button:hover {
+  background: #222;
+  color: #ffb700;
+}
+</style>
+
+<script>
+function mostrarProductos(tipo) {
+  const galeria = document.getElementById('galeria-productos');
+  let html = '';
+  if (tipo === 'creatina') {
+    html = `
+      <div class="oferta">
+        <img src="img/Creatina_Nutrex.png" alt="Creatina Nutrex">
+        <h2>Creatina Nutrex</h2>
+        <p class="precio">$95.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="oferta">
+        <img src="img/Micronized_Creatine.png" alt="Creatina Micronizada">
+        <h2>Creatina Micronizada</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+    `;
+  } else if (tipo === 'preentreno') {
+    html = `
+      <div class="oferta">
+        <img src="img/C4.png" alt="Pre-workout C4">
+        <h2>Pre-workout C4</h2>
+        <p class="precio">$120.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="oferta">
+        <img src="img/intenze.png" alt="Intenze">
+        <h2>Intenze</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+    `;
+  } else if (tipo === 'proteina') {
+    html = `
+      <div class="oferta">
+        <img src="img/Proteina_Yava_Labs.png" alt="Proteina Yava Labs">
+        <h2>Proteina Yava Labs</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="oferta">
+        <img src="img/MASS_TECH_XTREME_6_LB.png" alt="Proteina Mass Tech">
+        <h2>Proteina Mass Tech</h2>
+        <p class="precio">$250.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+    `;
+  }
+  galeria.innerHTML = html;
+}
+
+// Leer parámetro tipo de la URL
+document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+    const tipo = params.get("tipo");
+    if (tipo) {
+      mostrarProductos(tipo);
+    }
+  });
+</script>
+
+  <footer>
+  <div class="redes">
+    <a href="https://facebook.com/samuel_zuleta_" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com/samuel_zuleta_" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com/samuel_zuleta_" target="_blank">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</footer>
+</body>
+</html>

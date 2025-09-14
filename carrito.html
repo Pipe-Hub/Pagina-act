@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛒 Carrito | ENERGYVIBES</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/Pereira.png" type="image/png">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    .carrito-contenedor {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .producto-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .producto-carrito img {
+      width: 80px;
+      border-radius: 8px;
+    }
+    .producto-info {
+      flex: 1;
+      margin-left: 15px;
+    }
+    .producto-info h2 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .producto-info p {
+      margin: 5px 0;
+      color: #ffb700;
+      font-weight: bold;
+    }
+    .btn-eliminar {
+      background: red;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-eliminar:hover {
+      background: darkred;
+    }
+    .vaciar {
+      margin-top: 20px;
+      display: block;
+      background: #222;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .vaciar:hover {
+      background: #ffb700;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🗲 ENERGYVIBES 🗲</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio 🏠</a>
+    <div class="dropdown">
+      <a href="productos.html" class="active" id="productosBtn">Productos 📦 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content" id="productosMenu">
+        <a href="productos.html?tipo=creatina">Creatina</a>
+        <a href="productos.html?tipo=preentreno">Pre Entreno</a>
+        <a href="productos.html?tipo=proteina">Proteína</a>
+      </div>
+    </div>
+    <a href="ofertas.html">Ofertas 💸</a>
+    <a href="contacto.html">Contacto 📲</a>
+    <a href="carrito.html" class="active">Carrito 🛒</a>
+  </nav>
+
+  <main>
+    <section class="carrito-contenedor" id="lista-carrito">
+      <h2>Tu carrito 🛒</h2>
+      <div id="items-carrito"></div>
+      <button class="vaciar" id="vaciar-carrito">Vaciar carrito</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="redes">
+      <a href="https://facebook.com/samuel_zuleta_" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/samuel_zuleta_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/felipe_mr2122" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function mostrarCarrito() {
+      const contenedor = document.getElementById("items-carrito");
+      contenedor.innerHTML = "";
+
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+      if (carrito.length === 0) {
+        contenedor.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+        return;
+      }
+
+      carrito.forEach((prod, index) => {
+        const div = document.createElement("div");
+        div.classList.add("producto-carrito");
+        div.innerHTML = `
+          <img src="${prod.imagen}" alt="${prod.nombre}">
+          <div class="producto-info">
+            <h2>${prod.nombre}</h2>
+            <p>${prod.precio}</p>
+          </div>
+          <button class="btn-eliminar" data-index="${index}">Eliminar</button>
+        `;
+        contenedor.appendChild(div);
+      });
+
+      // eliminar producto
+      document.querySelectorAll(".btn-eliminar").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          let i = e.target.dataset.index;
+          carrito.splice(i, 1);
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          mostrarCarrito();
+        });
+      });
+    }
+
+    // vaciar carrito
+    document.getElementById("vaciar-carrito").addEventListener("click", () => {
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    });
+
+    document.addEventListener("DOMContentLoaded", mostrarCarrito);
+  </script>
+  <script src="productos.js"></script>
+</body>
+</html>
